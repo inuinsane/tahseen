@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Home from "./pages/Home";
+import Huruf from "./pages/Huruf";
+import { CContainer } from "@coreui/react";
+import TopNav from "./components/TopNav";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Router>
+        <div className="c-app c-default-layout">
+          <div className="c-wrapper">
+            <TopNav />
+            <div className="c-body">
+              <main className="main">
+                <CContainer fluid>
+                  <Switch>
+                    <Route exact path="/" component={Home} />
+                    <Route path="/huruf" component={Huruf} />
+                  </Switch>
+                </CContainer>
+              </main>
+            </div>
+          </div>
+        </div>
+      </Router>
+    </>
   );
 }
 
