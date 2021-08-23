@@ -1,57 +1,57 @@
 import {
-  CButton,
   CCollapse,
   CContainer,
-  CDropdown,
-  CDropdownDivider,
-  CDropdownItem,
-  CDropdownMenu,
-  CDropdownToggle,
-  CForm,
-  CHeader,
-  CHeaderBrand,
-  CHeaderNav,
-  CHeaderNavItem,
-  CHeaderNavLink,
-  CInput,
+  CImg,
+  CNavbar,
+  CNavbarBrand,
+  CNavbarNav,
   CNavItem,
   CNavLink,
+  CToggler,
 } from "@coreui/react";
-import { useState } from "react";
+import { useContext } from "react";
 import { FiMenu } from "react-icons/fi";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import { ShowContext } from "../context/ShowContext";
+import TahseenLogo from "../tahseen-logo.svg";
 
 const TopNav = () => {
-  const [visible, setVisible] = useState(false);
+  const [show, setShow] = useContext(ShowContext);
   return (
     <>
       {/* Header */}
-      <CHeader>
-        <CContainer>
-          <button
-            className="c-header-toggler ml-md-3 d-lg-none"
-            onClick={() => setVisible(!visible)}
-            ƒ
-          >
-            <span className="c-header-togler-icon">
-              <FiMenu />
-            </span>
-          </button>
-          {/* <CHeaderBrand className="c-header-brand mx-auto d-lg-none active">
-            Tahseen.
-          </CHeaderBrand>
-          <CHeaderNav className="d-md-down-none mr-auto">
-            <CHeaderNavItem class="px-3">
-              <CHeaderNavLink as={NavLink} to="/" className="">
+      <CNavbar expandable="sm" color="dark">
+        {/* <CNavbarBrand to="/" as={Link}>
+            <CImg src={TahseenLogo} fluid size="sm" />
+          </CNavbarBrand> */}
+        {/* button. */}
+        <CToggler
+          onClick={() => setShow({ ...show, sidebar: !show.sidebar })}
+          className="c-header-toggler ml-md-3 d-lg-none"
+        >
+          <FiMenu className="c-header-togler-icon" />
+        </CToggler>
+        <CToggler
+          onClick={() => setShow({ ...show, sidebar: !show.sidebar })}
+          className="c-header-toggler ml-3 d-md-down-none"
+        >
+          <FiMenu className="c-header-togler-icon" />
+        </CToggler>
+        <CCollapse className="navbar-collapse" show={show.navbar}>
+          <CNavbarNav>
+            <CNavItem>
+              <CNavLink to="/home" as={NavLink}>
                 Home
-              </CHeaderNavLink>
-              <CHeaderNavLink as={NavLink} to="/huruf">
+              </CNavLink>
+            </CNavItem>
+            <CNavItem>
+              <CNavLink to="/huruf" as={NavLink}>
                 Huruf
-              </CHeaderNavLink>
-            </CHeaderNavItem>
-          </CHeaderNav> */}
-        </CContainer>
-      </CHeader>
+              </CNavLink>
+            </CNavItem>
+          </CNavbarNav>
+        </CCollapse>
+      </CNavbar>
     </>
   );
 };
