@@ -1,10 +1,5 @@
 import CIcon from "@coreui/icons-react";
-import {
-  CImg,
-  CSidebar,
-  CSidebarBrand,
-  CSidebarMinimizer,
-} from "@coreui/react";
+import { CSidebar, CSidebarBrand, CSidebarMinimizer } from "@coreui/react";
 import { useContext } from "react";
 import { ShowContext } from "../context/ShowContext";
 import TahseenFav from "../assets/tahseen-favicon.png";

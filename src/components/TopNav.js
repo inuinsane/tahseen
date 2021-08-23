@@ -1,9 +1,6 @@
 import {
   CCollapse,
-  CContainer,
-  CImg,
   CNavbar,
-  CNavbarBrand,
   CNavbarNav,
   CNavItem,
   CNavLink,
@@ -11,9 +8,8 @@ import {
 } from "@coreui/react";
 import { useContext } from "react";
 import { FiMenu } from "react-icons/fi";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { ShowContext } from "../context/ShowContext";
-import TahseenLogo from "../tahseen-logo.svg";
 
 const TopNav = () => {
   const [show, setShow] = useContext(ShowContext);
@@ -21,10 +17,6 @@ const TopNav = () => {
     <>
       {/* Header */}
       <CNavbar expandable="sm" color="dark">
-        {/* <CNavbarBrand to="/" as={Link}>
-            <CImg src={TahseenLogo} fluid size="sm" />
-          </CNavbarBrand> */}
-        {/* button. */}
         <CToggler
           onClick={() => setShow({ ...show, sidebar: !show.sidebar })}
           className="c-header-toggler ml-md-3 d-lg-none"
